@@ -29,7 +29,7 @@ pipeline {
                 script {
                     sh """
                         ls -l
-                        sudo docker build -t ${params.IMAGE_NAME}:${params.IMAGE_TAG} .
+                        docker build -t ${params.IMAGE_NAME}:${params.IMAGE_TAG} .
                     """
                 }
             }
@@ -46,7 +46,7 @@ pipeline {
                         usernameVariable: "DOCKER_USERNAME",
                         passwordVariable: "DOCKER_PASSWORD"
                     )]) {
-                        sh "sudo docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD"
+                        sh "docker login -u $DOCKER_USERNAME -p $DOCKER_PASSWORD"
                     }
                 }
             }
@@ -58,7 +58,7 @@ pipeline {
             }
             steps {
                 script {
-                    sh "sudo docker push ${params.IMAGE_NAME}:${params.IMAGE_TAG}"
+                    sh "docker push ${params.IMAGE_NAME}:${params.IMAGE_TAG}"
                 }
             }
         }
