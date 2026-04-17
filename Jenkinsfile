@@ -28,7 +28,7 @@ pipeline {
             steps {
                 script {
                     sh """
-                        cd Amazon-Prime-
+                        ls
                         docker build -t ${params.IMAGE_NAME}:${params.IMAGE_TAG} .
                     """
                 }
