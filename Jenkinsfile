@@ -28,7 +28,7 @@ pipeline {
             steps {
                 script {
                     sh """
-                        ls
+                        ls -l
                         docker build -t ${params.IMAGE_NAME}:${params.IMAGE_TAG} .
                     """
                 }
